@@ -40,5 +40,11 @@ namespace Snake
             Console.SetCursorPosition(x, y);
             Console.Write(sim);
         }
+
+        internal void Clear()
+        {
+            sim = ' ';
+            Draw();
+        }
     }
 }
