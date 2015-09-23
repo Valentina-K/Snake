@@ -29,8 +29,8 @@ namespace Snake
 
         public void Move(int offset,Direction d) 
         {
-            if (d == Direction.RIGHT) { x = x - offset; }
-            if (d == Direction.LEFT) { x = x + offset; }
+            if (d == Direction.RIGHT) { x = x + offset; }
+            if (d == Direction.LEFT) { x = x - offset; }
             if (d == Direction.DOWN) { y = y + offset; }
             if (d == Direction.UP) { y = y - offset; }
         }
