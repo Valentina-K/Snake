@@ -13,7 +13,7 @@ namespace Snake
         {
             direct = _direct;
             pList = new List<Point>();
-            for (int i = 0; i <= Lenth; i++) 
+            for (int i = 0; i < Lenth; i++) 
             {
                 Point p = new Point(tail);
                 p.Move(i, direct);
@@ -31,7 +31,7 @@ namespace Snake
             head.Draw();
         }
 
-        private Point GetNextPoint()
+        public Point GetNextPoint()
         {
             Point head = pList.Last();
             Point nextPoint = new Point(head);
@@ -61,6 +61,17 @@ namespace Snake
                 return true;
             }
             else return false;
+        }
+
+        internal bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count-2; i++) 
+            {
+                if (head.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
         }
     }
 }
