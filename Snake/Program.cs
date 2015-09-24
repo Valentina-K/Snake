@@ -13,7 +13,7 @@ namespace Snake
         static void Main(string[] args)
         {
             int t;
-            Console.WriteLine("        Выберите свой уровень игры:\nвысокий - 1, средний - 2 или низкий - 3");
+            Console.WriteLine("      Выберите свой уровень игры:\nвысокий - 1, средний - 2 или низкий - 3");
             ConsoleKeyInfo cinf= Console.ReadKey();
             t = (cinf.KeyChar - 48) * 100;
             Console.Clear();
