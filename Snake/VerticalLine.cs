@@ -8,12 +8,12 @@ namespace Snake
 {
     class VerticalLine : Figure
     {
-        public VerticalLine(int yUp, int yUdown, int x, char sim) 
+        public VerticalLine(int yUp, int yUdown, int x, char sim, ColorSnake color) 
         {
             pList = new List<Point>();
             for (int y = yUp; y <= yUdown; y++) 
             {
-                Point p = new Point(x, y, sim);
+                Point p = new Point(x, y, sim, color);
                 pList.Add(p);
             }
         }

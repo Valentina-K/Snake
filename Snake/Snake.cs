@@ -9,6 +9,7 @@ namespace Snake
     class Snake : Figure
     {
         Direction direct;
+        Random rand = new Random();
         public Snake(Point tail,int Lenth,Direction _direct)
         {
             direct = _direct;
@@ -57,6 +58,7 @@ namespace Snake
             if (head.IsHit(food))
             {
                 food.sim = head.sim;
+                food.color = (ColorSnake)rand.Next(0,5);
                 pList.Add(food);
                 return true;
             }
