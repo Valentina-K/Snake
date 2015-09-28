@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Snake
 {
@@ -22,9 +23,22 @@ namespace Snake
             VerticalLine vl1 = new VerticalLine(0, 24, 0, '+');
             vl1.Draw();
             Point p1 = new Point(3, 3, '*');
-            Snake sn = new Snake(p1, 5, Direction.LEFT);
+            Snake sn = new Snake(p1, 5, Direction.RIGHT);
             sn.Draw();
-            Console.ReadLine();
+            while (true) 
+            {
+                if (Console.KeyAvailable) 
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    sn.HandleKey(key.Key);
+                }
+                
+                Thread.Sleep(100);
+                sn.Move();
+            }
+            
+            
+            //Console.ReadLine();
         }
     }
 }
