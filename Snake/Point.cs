@@ -10,7 +10,7 @@ namespace Snake
     {
         int x;
         int y;
-        char sim;
+        public char sim;
 
         public Point() { }
         public Point(int _x, int _y, char _sim) 
@@ -45,6 +45,11 @@ namespace Snake
         {
             sim = ' ';
             Draw();
+        }
+
+        internal bool IsHit(Point food)
+        {
+            return food.x == this.x && food.y == this.y;
         }
     }
 }
