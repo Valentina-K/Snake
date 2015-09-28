@@ -16,6 +16,9 @@ namespace Snake
             p1.Draw();
             p2.Draw();
 
+            HorizontalLine hl = new HorizontalLine(5, 15, 7, '+');
+            hl.Draw();
+
             Console.ReadLine();
         }
     }
