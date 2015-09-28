@@ -12,16 +12,15 @@ namespace Snake
         
         static void Main(string[] args)
         {
+            int t;
+            Console.WriteLine("Выберите свой уровень:\nвысокий - 1, средний - 2 или низкий - 3");
+            ConsoleKeyInfo cinf= Console.ReadKey();
+            t = (cinf.KeyChar - 48) * 100;
+            Console.Clear();
             Console.SetBufferSize(80, 25);
-            
-            HorizontalLine hl = new HorizontalLine(0, 78, 0, '-');
-            hl.Draw();
-            HorizontalLine hl1 = new HorizontalLine(0, 78, 24, '-');
-            hl1.Draw();
-            VerticalLine vl = new VerticalLine(0, 24, 78, '|');
-            vl.Draw();
-            VerticalLine vl1 = new VerticalLine(0, 24, 0, '|');
-            vl1.Draw();
+            Walls wall = new Walls(80, 25);
+            wall.Drow();
+                    
             Point p1 = new Point(3, 3, '*');
             Snake sn = new Snake(p1, 5, Direction.RIGHT);
             sn.Draw();
@@ -30,6 +29,8 @@ namespace Snake
             food.Draw();
             while (true) 
             {
+                if (wall.IsHit(sn) || sn.IsHitTail())
+                    break;
                 if (sn.Eat(food)) 
                 {
                     food = fc.CreateFood();
@@ -37,7 +38,7 @@ namespace Snake
                 }
                 else
                     sn.Move(); 
-                Thread.Sleep(100);
+                Thread.Sleep(t);
 
                 if (Console.KeyAvailable) 
                 {
@@ -45,9 +46,9 @@ namespace Snake
                     sn.HandleKey(key.Key);
                 }
             }
-            
-            
-            //Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Игра окончена! \nСпасибо за внимание.");
+            Console.ReadLine();
         }
     }
 }

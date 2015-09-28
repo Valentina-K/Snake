@@ -41,13 +41,13 @@ namespace Snake
             Console.Write(sim);
         }
 
-        internal void Clear()
+        public void Clear()
         {
             sim = ' ';
             Draw();
         }
 
-        internal bool IsHit(Point food)
+        public bool IsHit(Point food)
         {
             return food.x == this.x && food.y == this.y;
         }
