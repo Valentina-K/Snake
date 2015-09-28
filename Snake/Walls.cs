@@ -13,10 +13,10 @@ namespace Snake
         public Walls(int mapWidth, int mapHeight) 
         {
             wallList = new List<Figure>();
-            HorizontalLine horLine = new HorizontalLine(0, mapWidth - 2, 0, '+');
-            HorizontalLine botLine = new HorizontalLine( 0, mapWidth - 2,mapHeight - 1, '+');
-            VerticalLine leftLine = new VerticalLine(0, mapHeight - 1, 0, '+');
-            VerticalLine rightLine = new VerticalLine(0, mapHeight - 1, mapWidth - 2, '+');
+            HorizontalLine horLine = new HorizontalLine(0, mapWidth - 2, 0, '+',ColorSnake.WHITE);
+            HorizontalLine botLine = new HorizontalLine( 0, mapWidth - 2,mapHeight - 1, '+',ColorSnake.WHITE);
+            VerticalLine leftLine = new VerticalLine(0, mapHeight - 1, 0, '+',ColorSnake.WHITE);
+            VerticalLine rightLine = new VerticalLine(0, mapHeight - 1, mapWidth - 2, '+',ColorSnake.WHITE);
 
             wallList.Add(horLine);
             wallList.Add(botLine);

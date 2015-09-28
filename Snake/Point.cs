@@ -11,13 +11,15 @@ namespace Snake
         int x;
         int y;
         public char sim;
+        public ColorSnake color;
 
         public Point() { }
-        public Point(int _x, int _y, char _sim) 
+        public Point(int _x, int _y, char _sim, ColorSnake color) 
         {
             x = _x;
             y = _y;
             sim = _sim;
+            this.color = color;
         }
 
         public Point(Point p) 
@@ -25,6 +27,7 @@ namespace Snake
             x = p.x;
             y = p.y;
             sim = p.sim;
+            color = p.color;
         }
 
         public void Move(int offset,Direction d) 
@@ -37,6 +40,16 @@ namespace Snake
 
         public void Draw() 
         {
+            if (color == ColorSnake.BLUE)
+                Console.ForegroundColor = ConsoleColor.Blue;
+            else if (color == ColorSnake.GREEN)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else if (color == ColorSnake.RED)
+                Console.ForegroundColor = ConsoleColor.Red;
+            else if (color == ColorSnake.WHITE)
+                Console.ForegroundColor = ConsoleColor.White;
+            else if (color == ColorSnake.YELLOW)
+                Console.ForegroundColor = ConsoleColor.Yellow;
             Console.SetCursorPosition(x, y);
             Console.Write(sim);
         }

@@ -13,7 +13,7 @@ namespace Snake
         static void Main(string[] args)
         {
             int t;
-            Console.WriteLine("Выберите свой уровень:\nвысокий - 1, средний - 2 или низкий - 3");
+            Console.WriteLine("      Выберите свой уровень игры:\nвысокий - 1, средний - 2 или низкий - 3");
             ConsoleKeyInfo cinf= Console.ReadKey();
             t = (cinf.KeyChar - 48) * 100;
             Console.Clear();
@@ -21,10 +21,10 @@ namespace Snake
             Walls wall = new Walls(80, 25);
             wall.Drow();
                     
-            Point p1 = new Point(3, 3, '*');
+            Point p1 = new Point(3, 3, '*',ColorSnake.WHITE);
             Snake sn = new Snake(p1, 5, Direction.RIGHT);
             sn.Draw();
-            FoodCreator fc = new FoodCreator(80, 25, '$');
+            FoodCreator fc = new FoodCreator(80, 25, '$',ColorSnake.YELLOW);
             Point food = fc.CreateFood();
             food.Draw();
             while (true) 
@@ -47,7 +47,7 @@ namespace Snake
                 }
             }
             Console.Clear();
-            Console.WriteLine("Игра окончена! \nСпасибо за внимание.");
+            Console.WriteLine("   Игра окончена! \nСпасибо за внимание.");
             Console.ReadLine();
         }
     }
